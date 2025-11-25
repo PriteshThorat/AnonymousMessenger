@@ -36,7 +36,17 @@ const POST = async(request: Request) => {
 
         user.message.push(newMessage as Message)
 
-        await user.save()
+        await user.save() 
+
+        return Response.json(
+            {
+                success: true,
+                message: "Messsage send successfully"
+            },
+            {
+                status: 200
+            }
+        )
     } catch (error) {
         console.log("Error at sending Message")
         
