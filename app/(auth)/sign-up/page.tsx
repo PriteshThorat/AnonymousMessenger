@@ -104,7 +104,7 @@ const SignUp = () => {
                                 <FormControl>
                                     <Input 
                                     placeholder="Choose a username"
-                                    className="focus:ring-2 focus:ring-blue-500 transition-all"
+                                    className="focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     { ...field }
                                     onChange={e => {
                                         field.onChange(e)
@@ -133,7 +133,7 @@ const SignUp = () => {
                                     <Input 
                                     type="email"
                                     placeholder="your@email.com"
-                                    className="focus:ring-2 focus:ring-blue-500 transition-all"
+                                    className="focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     { ...field } />
                                 </FormControl>
                                 <FormMessage/>
@@ -150,7 +150,7 @@ const SignUp = () => {
                                     <Input 
                                     type="password"
                                     placeholder="Enter a secure password"
-                                    className="focus:ring-2 focus:ring-blue-500 transition-all"
+                                    className="focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     { ...field } />
                                 </FormControl>
                                 <FormMessage/>
