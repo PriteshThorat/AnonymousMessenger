@@ -1,6 +1,5 @@
 import dbConnect from "@/src/lib/dbConnect"
 import userModel from "@/src/models/user.model"
-import { Elsie_Swash_Caps } from "next/font/google"
 
 const POST = async(request: Request) => {
     await dbConnect()
