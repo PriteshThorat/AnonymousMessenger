@@ -46,7 +46,7 @@ const Verify = () => {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 relative overflow-hidden">
+        <div className="flex justify-center items-center min-h-screen bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 relative overflow-hidden px-4 py-8">
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -54,24 +54,24 @@ const Verify = () => {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             </div>
 
-            <div className="w-full max-w-md p-8 space-y-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/50 relative z-10 animate-fade-in">
+            <div className="w-full max-w-md p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl md:rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/50 relative z-10 animate-fade-in">
                 {/* Icon header */}
                 <div className="flex justify-center">
                     <div className="relative">
                         <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-50 animate-pulse"></div>
-                        <div className="relative bg-linear-to-r from-blue-600 to-purple-600 p-4 rounded-full">
-                            <ShieldCheck className="w-10 h-10 text-white" />
+                        <div className="relative bg-linear-to-r from-blue-600 to-purple-600 p-3 sm:p-4 rounded-full">
+                            <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                         </div>
                     </div>
                 </div>
 
                 <div className="text-center space-y-3">
-                    <h1 className='text-4xl font-extrabold tracking-tight lg:text-5xl bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient'>
+                    <h1 className='text-3xl sm:text-4xl font-extrabold tracking-tight lg:text-5xl bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient'>
                         Verification Code
                     </h1>
                     <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-300">
-                        <Mail className="w-4 h-4" />
-                        <p className='text-sm font-medium'>
+                        <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <p className='text-xs sm:text-sm font-medium'>
                             Enter the code sent to your email
                         </p>
                     </div>
@@ -107,8 +107,8 @@ const Verify = () => {
                 </Form>
 
                 {/* Footer hint */}
-                <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                <div className="text-center pt-3 sm:pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">
                         Didn't receive the code? Check your spam folder
                     </p>
                 </div>
