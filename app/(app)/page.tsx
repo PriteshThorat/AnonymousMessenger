@@ -1,65 +1,97 @@
-import Image from "next/image";
+"use client"
+
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from 'embla-carousel-autoplay';
+import messages from '../messages.json'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-linear-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-600/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-300 dark:bg-indigo-600/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-300 dark:bg-pink-600/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-16">
+        {/* Hero Section */}
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient leading-tight">
+            Dive into the World of
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-4 bg-linear-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+            Anonymous Messenger
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mt-6 font-medium">
+            Share your thoughts freely, receive honest feedback, and connect authentically without revealing your identity.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Carousel Section */}
+        <div className="w-full max-w-4xl">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
+            What People Are Saying
+          </h3>
+          <Carousel 
+            plugins={[Autoplay({ delay: 2000 })]}
+            className="w-full max-w-md mx-auto">
+            <CarouselContent>
+              {
+                messages.map((message, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-2">
+                      <Card className="bg-linear-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200 dark:border-gray-700 shadow-2xl hover:shadow-3xl transition-all duration-300 rounded-3xl overflow-hidden">
+                        <CardHeader className="bg-linear-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 pb-4 border-b-2 border-gray-200 dark:border-gray-700">
+                          <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">{message.title}</h4>
+                        </CardHeader>
+                        <CardContent className="flex items-center justify-center p-8 min-h-[250px]">
+                          <p className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 text-center leading-relaxed">
+                            {message.content}
+                          </p>
+                        </CardContent>
+                        <CardFooter className="bg-linear-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 pt-4 border-t-2 border-gray-200 dark:border-gray-700">
+                          <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mx-auto">
+                            📩 {message.received}
+                          </p>
+                        </CardFooter>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))
+              }
+            </CarouselContent>
+            <CarouselPrevious className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-gray-300 dark:border-gray-600 hover:bg-white dark:hover:bg-gray-700 shadow-lg" />
+            <CarouselNext className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-gray-300 dark:border-gray-600 hover:bg-white dark:hover:bg-gray-700 shadow-lg" />
+          </Carousel>
         </div>
-      </main>
+
+        {/* Features Section */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full px-4">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div className="text-4xl mb-4">🔒</div>
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">100% Anonymous</h3>
+            <p className="text-gray-600 dark:text-gray-400">Your identity is completely protected. Send and receive messages without any trace.</p>
+          </div>
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div className="text-4xl mb-4">⚡</div>
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Instant Delivery</h3>
+            <p className="text-gray-600 dark:text-gray-400">Messages are delivered in real-time. Get instant feedback and responses.</p>
+          </div>
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <div className="text-4xl mb-4">🌟</div>
+            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Safe & Secure</h3>
+            <p className="text-gray-600 dark:text-gray-400">Your data is encrypted and secure. We prioritize your privacy above all.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
