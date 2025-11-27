@@ -3,8 +3,9 @@ import { getServerSession, User } from "next-auth"
 import authOptions from "../../auth/[...nextauth]/options"
 import userModel from "@/src/models/user.model"
 
-const DELETE = async(request: Request, { params }: { params: { messageId: string }}) => {
-    const messageId = params.messageId
+const DELETE = async(request: Request, { params }: { params: Promise<{ messageId: string }> }) => {
+    const { messageId } = await params
+
     await dbConnect()
 
     const session = await getServerSession(authOptions)
@@ -29,12 +30,15 @@ const DELETE = async(request: Request, { params }: { params: { messageId: string
             },
             {
                 $pull: {
-                    messages: {
+                    message: {
                         _id: messageId
                     }
                 }
             }
         )
+
+        console.log("updatedResult", updatedResult)
+        console.log("user._id", user._id)
 
         if(updatedResult.modifiedCount === 0)
             return Response.json(

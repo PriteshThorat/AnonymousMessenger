@@ -25,31 +25,31 @@ const GET = async() => {
     const userId = new Types.ObjectId(user._id)
 
     try {
-        const user = await userModel.aggregate([
+        const document = await userModel.aggregate([
             {
                 $match: {
-                    $id: userId
+                    _id: userId
                 }
             },
             {
-                $unwind: '$messages'
+                $unwind: '$message'
             },
             {
                 $sort: {
-                    'messages.createdAt': -1
+                    'message.createdAt': -1
                 }
             },
             {
                 $group: {
                     _id: '$_id',
-                    messages: {
-                        $push: '$messages'
+                    message: {
+                        $push: '$message'
                     }
                 }
             }
         ])
 
-        if(!user || user.length === 0)
+        if(!document || document.length === 0)
             return Response.json(
                 {
                     success: false,
@@ -63,7 +63,7 @@ const GET = async() => {
         return Response.json(
             {
                 success: true,
-                messages: user[0].messages
+                messages: document[0].message
             },
             {
                 status: 200
