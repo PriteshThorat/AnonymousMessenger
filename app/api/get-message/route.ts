@@ -53,7 +53,7 @@ const GET = async() => {
             return Response.json(
                 {
                     success: false,
-                    message: "User not found"
+                    message: "User has no messages"
                 },
                 {
                     status: 404
