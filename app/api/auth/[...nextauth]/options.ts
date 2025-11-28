@@ -11,12 +11,12 @@ const authOptions: NextAuthOptions = {
             id: "credentials",
             name: "Credentials",
             credentials: {
-                email: {
-                    lable: "Email",
+                identifier: {
+                    label: "Email or Username",
                     type: "text"
                 },
                 password: {
-                    lable: "Password",
+                    label: "Password",
                     type: "password"
                 }
             },
