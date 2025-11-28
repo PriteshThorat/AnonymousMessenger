@@ -13,9 +13,9 @@ const Navbar = () => {
         <nav className="shadow-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-black/80">
             <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
                 <div className="flex justify-between items-center h-14 sm:h-16">
-                    <a href="#" className="text-lg sm:text-xl md:text-2xl font-bold bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">
+                    <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">
                         Anonymous Messenger
-                    </a>
+                    </Link>
                     <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                         {
                             session ? (

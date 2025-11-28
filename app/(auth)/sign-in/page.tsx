@@ -97,7 +97,7 @@ const SignIn = () => {
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
                                             Didn't have an account yet?{' '}
                                             <Link href="/sign-up" className="text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-gray-300 font-medium transition-colors underline-offset-4 hover:underline">
-                                                Sign In
+                                                Sign Up
                                             </Link>
                                         </p>
                                     </div>
