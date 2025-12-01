@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anonymous Messenger",
   description: "Created by Pritesh Thorat",
+  other: {
+    'google-site-verification': 'CeZFxqzL0jCPFqyU2-x6SXrGzRx0d8Z010PDkCNSlyM'
+  }
 };
 
 export default function RootLayout({
