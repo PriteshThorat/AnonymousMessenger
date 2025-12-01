@@ -18,6 +18,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-switch": "^1.2.6",
     "@react-email/components": "^1.0.1",
+    "@vercel/analytics": "^1.6.0",
     "@vercel/functions": "^3.3.4",
     "ai": "^5.0.101",
     "axios": "^1.13.2",
