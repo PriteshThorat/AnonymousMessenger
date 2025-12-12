@@ -20,14 +20,8 @@ Send and receive anonymous messages with optional AI‑generated prompts, secure
 10. Email Verification Flow
 11. AI Prompt Generation
 12. API Reference
-13. Environment Variables
-14. Scripts
-15. Local Development Setup
-16. Production Build & Deployment
-17. Roadmap / Ideas
-18. Contributing
-19. Security Notes
-20. License
+13. Roadmap / Ideas
+14. License
 
 ---
 
@@ -175,56 +169,7 @@ General error envelope:
 { "success": false, "message": "<reason>" }
 ```
 
-## 13. Environment Variables
-
-Create `.env.local` with:
-
-```
-MONGODB_URI=<your_mongodb_connection_string>
-NEXT_AUTH_SECRET=<strong_random_string>
-GEMINI_API_KEY=<google_generative_ai_key>
-RESEND_API_KEY=<resend_api_key>
-```
-
-Optional/custom:
-
-- Email `from` address configured in `sendVerificationEmail.ts`.
-
-## 14. Scripts
-
-| Script          | Purpose                  |
-| --------------- | ------------------------ |
-| `npm run dev`   | Start Next.js dev server |
-| `npm run build` | Production build         |
-| `npm run start` | Start production server  |
-| `npm run lint`  | Run ESLint over project  |
-
-## 15. Local Development Setup
-
-```bash
-git clone https://github.com/PriteshThorat/AnonymousMessenger.git
-cd AnonymousMessenger
-pnpm install   # or npm install / yarn
-cp .env.example .env.local  # if you create an example file
-# Fill in required secrets
-npm run dev
-```
-
-Visit `http://localhost:3000`.
-
-## 16. Production Build & Deployment
-
-```bash
-npm run build
-npm run start
-```
-
-Deploy on Vercel (recommended):
-
-- Add env vars in Vercel dashboard.
-- Ensure MongoDB Atlas IP allowlist includes Vercel serverless IP ranges or uses SRV connection string.
-
-## 17. Roadmap / Ideas
+## 13. Roadmap / Ideas
 
 - Rate limiting (IP, per-user).
 - Spam / toxicity filtering (AI moderation).
@@ -234,23 +179,7 @@ Deploy on Vercel (recommended):
 - Optional replies (non-anonymous).
 - Dark/light adaptive email templates.
 
-## 18. Contributing
-
-1. Fork & clone.
-2. Create feature branch: `git checkout -b feature/name`.
-3. Commit with conventional style messages.
-4. Lint before pushing.
-5. Open PR describing changes & testing steps.
-
-## 19. Security Notes
-
-- Store only hashed passwords (bcrypt).
-- OTP codes expire after 1 hour; consider rate limits.
-- JWT secret must be strong and rotated periodically.
-- Avoid logging sensitive data (current logs acceptable but can be hardened).
-- Consider adding CSRF and better error normalization in future.
-
-## 20. License
+## 14. License
 
 This project is licensed under the MIT License.
 
@@ -258,19 +187,6 @@ This project is licensed under the MIT License.
 - Copyright (c) 2025 Pritesh Thorat.
 
 ---
-
-## Quick Start Snippet
-
-```bash
-git clone https://github.com/PriteshThorat/AnonymousMessenger.git
-cd AnonymousMessenger
-npm install
-echo "MONGODB_URI=..." >> .env.local
-echo "NEXT_AUTH_SECRET=..." >> .env.local
-echo "GEMINI_API_KEY=..." >> .env.local
-echo "RESEND_API_KEY=..." >> .env.local
-npm run dev
-```
 
 ## Support
 
